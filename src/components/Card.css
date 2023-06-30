@@ -1,0 +1,36 @@
+/* card.css */
+
+.card,
+.card-notHover,
+.card-timeline-card {
+  background-color: var(--secondary-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 20px;
+  margin: 20px;
+  transition: background-color 0.3s ease;
+
+  height: 100%;
+  width: 100%;
+}
+
+.card-timeline-card:hover {
+  background-color: var(--hover-color);
+}
+
+.card-content,
+.card-notHover,
+.card-timeline-card-content {
+  color: var(--secondary-color);
+}
+
+.card:hover .card-content,
+.card-timeline-card:hover .card-timeline-card-content {
+  color: var(--secondary-color);
+}
+@media screen and (max-width: 768px) {
+  .card,
+  .card-notHover,
+  .card-timeline-card {
+  }
+}
