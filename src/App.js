@@ -9,7 +9,9 @@ import Card from "./components/Card";
 
 function App() {
   const [timeLine, setTimeLine] = useState(
-    JSON.parse(window.localStorage.getItem("timeLine"))
+    window.localStorage.getItem("timeLine") === null
+      ? defaultTimeLine
+      : JSON.parse(window.localStorage.getItem("timeLine"))
   );
   const [tagOption, setTagOption] = useState(TAGS.ALL);
 
