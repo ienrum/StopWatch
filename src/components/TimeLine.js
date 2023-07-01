@@ -18,7 +18,6 @@ const Timeline = (props) => {
 
   const onDeleteHandler = (id) => {
     return () => {
-      console.log(id);
       props.onSetTimeLine((prevState) =>
         prevState.filter((time) => time.id !== id)
       );
