@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SecondsToMinutes from "../functions/SecondsToMinutes";
 import Card from "./Card";
 import "./StopWatch.css";
@@ -10,9 +10,20 @@ const StopWatch = (props) => {
   const [intervalEl, setIntervalEl] = useState(null);
   const [startedAt, setStartedAt] = useState(Date());
 
+  useEffect(() => {
+    window.addEventListener(
+      "focus",
+      function () {
+        const duration = Math.floor((Date.now() - startedAt) / 1000);
+        setCurrentTime((prevState) => (prevState === 0 ? 0 : duration));
+      },
+      false
+    );
+  }, [isStop]);
+
   const stopWatchButtonHandler = () => {
     if (isStop) {
-      setStartedAt(Date());
+      setStartedAt(Date.now());
       setIntervalEl(
         setInterval(() => {
           setCurrentTime((prevState) => prevState + 1);
