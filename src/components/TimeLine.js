@@ -2,8 +2,8 @@ import { useState } from "react";
 import { TAGS } from "../datas/Tags";
 import SecondsToMinutes from "../functions/SecondsToMinutes";
 import DateFormatter from "../functions/DateFormatter";
-import Card from "./Card";
-import "./TimeLine.css";
+import Card from "./UI/Card";
+import styles from "./TimeLine.module.css";
 
 const Timeline = (props) => {
   let timeLine = props.timeLine.filter((time) => time.tag === props.tagOption);
@@ -25,29 +25,29 @@ const Timeline = (props) => {
   };
 
   return (
-    <div className="timeline-container">
-      <h2 className="timeline-total-time">
+    <>
+      <h2 className={styles["total-time"]}>
         Total Time: {SecondsToMinutes(totalTime)}
       </h2>
       {timeLine.map((time) => (
         <Card
           onClick={onDeleteHandler(time.id)}
           key={time.id}
-          className="timeline-card"
+          className={styles["timeline-element-container"]}
           tag={time.tag}
         >
-          <div className="timeline-duration">
-            {SecondsToMinutes(time.duration)}
-          </div>
-          <div className="timeline-subTags">
-            <div className="timeline-tag">{time.tag}</div>
-            <div className="timeline-started-at">
+          <div className={styles.tag}>{time.tag}</div>
+          <div className={styles["sub-information"]}>
+            <div className={styles.duration}>
+              {SecondsToMinutes(time.duration)}
+            </div>
+            <div className={styles["started-at"]}>
               {DateFormatter(time.startedAt)}
             </div>
           </div>
         </Card>
       ))}
-    </div>
+    </>
   );
 };
 

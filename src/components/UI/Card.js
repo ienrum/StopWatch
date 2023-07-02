@@ -1,8 +1,7 @@
-import "./Card.css";
-import { TAGS } from "../datas/Tags";
+import { TAGS } from "../../datas/Tags";
+import styles from "./Card.module.css";
 
 const Card = (props) => {
-  let className = "card";
   const tag = props.tag;
 
   const colors = {
@@ -15,15 +14,15 @@ const Card = (props) => {
 
   const style = {
     border: `4px solid ${colors[tag]}`, // set border to be thicker
-    borderColor: `${colors[tag]}80`, // set border color to be darker
+    borderColor: `${colors[tag]}90`, // set border color to be darker
   };
 
-  if (props.className) {
-    className += `-${props.className}`;
-  }
-
   return (
-    <div onClick={props.onClick} className={className} style={style}>
+    <div
+      onClick={props.onClick}
+      className={`${props.className} ${styles.card}`}
+      style={style}
+    >
       {props.children}
     </div>
   );

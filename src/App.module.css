@@ -1,0 +1,71 @@
+/* Colors */
+:root {
+  --primary-color: #a27b5c;
+  --secondary-color: #3f4e4f;
+  --accent-color: #dcd7c9;
+  --hover-color: #3b4244;
+  --background-color: #2c3639;
+}
+
+:root {
+  --primary-color: #e86a33;
+  --secondary-color: #41644a;
+  --accent-color: #f2e3db;
+  --hover-color: #ee964b;
+  --background-color: #263a29;
+}
+
+:root {
+  --primary-color: #6d5d6e;
+  --secondary-color: #4f4557;
+  --accent-color: #f4eee0;
+  --hover-color: #393646;
+  --background-color: #393646;
+}
+
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--accent-color);
+}
+html {
+  background-color: var(--background-color);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  height: 100%;
+  width: 50%;
+  margin: 3% auto;
+
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+}
+
+.title {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 5% !important;
+
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .App {
+    width: 90%;
+  }
+}

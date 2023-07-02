@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import SecondsToMinutes from "../functions/SecondsToMinutes";
-import Card from "./Card";
-import "./StopWatch.css";
+import Card from "./UI/Card";
+import styles from "./StopWatch.module.css";
 const { v4: uuidv4 } = require("uuid");
 
 const StopWatch = (props) => {
@@ -50,13 +50,11 @@ const StopWatch = (props) => {
   };
 
   return (
-    <Card className="notHover">
-      <div className="stopwatch-container">
-        <h1 className="stopwatch-title">{SecondsToMinutes(currentTime)}</h1>
-        <button className="stopwatch-button" onClick={stopWatchButtonHandler}>
-          {isStop ? "Start" : "Stop"}
-        </button>
-      </div>
+    <Card className={styles["stop-watch"]}>
+      <h1 className={styles.title}>{SecondsToMinutes(currentTime)}</h1>
+      <button className={styles.button} onClick={stopWatchButtonHandler}>
+        {isStop ? "Start" : "Stop"}
+      </button>
     </Card>
   );
 };

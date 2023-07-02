@@ -1,0 +1,47 @@
+/* timeline.css */
+
+.total-time {
+  font-size: 30px;
+}
+
+.timeline-element-container {
+  background-color: var(--primary-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 13px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+}
+
+.timeline-element-container:hover {
+  background-color: var(--hover-color);
+}
+
+.duration {
+  font-size: 30px;
+  font-weight: 1000;
+}
+.sub-information {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 10%;
+}
+
+.tag {
+  font-size: 26px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.started-at {
+  font-size: 20px;
+}
