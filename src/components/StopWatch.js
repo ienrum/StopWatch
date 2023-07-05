@@ -13,64 +13,45 @@ const buttonReducer = (prevState, action) => {
 
 const StopWatch = (props) => {
   const [currentTime, setCurrentTime] = useState(0);
-  const [intervals, setIntervals] = useState([]);
-  let cnt = 0;
+  const [intervalId, setIntervalId] = useState(0);
+
   const [buttonState, dispatchButton] = useReducer(buttonReducer, {
-    type: "STOP",
     isStop: true,
     startedAt: Date(),
-    a,
   });
-  // useEffect(() => {
-  //   window.addEventListener(
-  //     "focus",
-  //     function () {
-  //       const duration = Math.floor(
-  //         (Date.now() - buttonState.startedAt) / 1000
-  //       );
-  //       setCurrentTime((prevState) => (prevState === 0 ? 0 : duration));
-  //     },
-  //     false
-  //   );
-  // }, [buttonState.isStop]);
 
   useEffect(() => {
-    return () => {
-      if (buttonState.isStop) {
-        if (currentTime > 0) {
-          props.onSetTimeLine((prevState) => [
-            ...prevState,
-            {
-              id: uuidv4(),
-              duration: currentTime,
-              tag: props.tag,
-              startedAt: buttonState.startedAt,
-            },
-          ]);
-        }
-        setCurrentTime(0);
-        intervals.forEach((interval) => {
-          // console.log(interval);
-          clearInterval(interval);
-        });
-      } else {
-        // console.log("start");
-        setIntervals((prevStates) => {
-          // if (prevStates.length > 0) {
-          //   return;
-          // }
-          const temp = setInterval(() => {
-            setCurrentTime((prevState) => prevState + 1);
-          }, 1000);
-          let ok = [...prevStates, temp];
-          console.log(ok, prevStates);
-          return ok;
-        });
-      }
-    };
+    window.addEventListener("focus", function () {
+      const duration = Math.floor((Date.now() - buttonState.startedAt) / 1000);
+      setCurrentTime((prevState) => (prevState === 0 ? 0 : duration));
+    });
   }, [buttonState.isStop]);
 
-  const stopWatchButtonHandler = (event) => {
+  useEffect(() => {
+    if (buttonState.isStop) {
+      if (currentTime > 0) {
+        props.onSetTimeLine((prevState) => [
+          ...prevState,
+          {
+            id: uuidv4(),
+            duration: currentTime,
+            tag: props.tag,
+            startedAt: buttonState.startedAt,
+          },
+        ]);
+      }
+      setCurrentTime(0);
+      clearInterval(intervalId);
+    } else {
+      setIntervalId((prevStates) =>
+        setInterval(() => {
+          setCurrentTime((prevState) => prevState + 1);
+        }, 1000)
+      );
+    }
+  }, [buttonState.isStop]);
+
+  const stopWatchButtonHandler = () => {
     dispatchButton({});
   };
 
