@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { TAGS } from "../datas/Tags";
-import SecondsToMinutes from "../functions/SecondsToMinutes";
-import DateFormatter from "../functions/DateFormatter";
+import { TAGS } from "../../datas/Tags";
+import SecondsToMinutes from "../../functions/SecondsToMinutes";
+import DateFormatter from "../../functions/DateFormatter";
 import Card from "./UI/Card";
 import styles from "./TimeLine.module.css";
 
@@ -42,7 +42,7 @@ const Timeline = (props) => {
               {SecondsToMinutes(time.duration)}
             </div>
             <div className={styles["started-at"]}>
-              {DateFormatter(time.startedAt)}
+              {DateFormatter(time.startedAt, "m/d/y h:min")}
             </div>
           </div>
         </Card>

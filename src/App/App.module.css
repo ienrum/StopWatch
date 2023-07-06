@@ -1,0 +1,41 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  height: 100%;
+  width: 50%;
+  margin: 3% auto;
+
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+}
+
+.title {
+  font-size: 40px;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.title:hover {
+  background-color: var(--primary-color);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 5% !important;
+
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .App {
+    width: 90%;
+  }
+}

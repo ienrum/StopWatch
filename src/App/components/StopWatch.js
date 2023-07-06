@@ -1,5 +1,5 @@
 import { useState, useEffect, useReducer } from "react";
-import SecondsToMinutes from "../functions/SecondsToMinutes";
+import SecondsToMinutes from "../../functions/SecondsToMinutes";
 import Card from "./UI/Card";
 import styles from "./StopWatch.module.css";
 const { v4: uuidv4 } = require("uuid");
@@ -7,7 +7,7 @@ const { v4: uuidv4 } = require("uuid");
 const buttonReducer = (prevState, action) => {
   return {
     isStop: prevState.isStop ? false : true,
-    startedAt: Date.now(),
+    startedAt: prevState.isStop ? Date.now() : prevState.startedAt,
   };
 };
 
