@@ -28,7 +28,7 @@ const Graph = ({ timeLine, tagOption, weekPeriod }) => {
     <div className={styles.container}>
       {dayOfWeekTotalTime.map((totalTime, index) => {
         const day = dayOfWeek[index];
-        const height = (totalTime / maxTotalTime) * 100;
+        const height = (totalTime / maxTotalTime) * 100 * 0.65;
         return (
           <div key={index} className={styles["graph"]}>
             <div
@@ -39,10 +39,12 @@ const Graph = ({ timeLine, tagOption, weekPeriod }) => {
                 opacity: "40%",
               }}
             ></div>
-            <div className={styles["graph-element-total-time"]}>
-              {SecondsToMinutes(totalTime)}
+            <div className={styles["day"]}>
+              {day}
+              <div className={styles["graph-element-total-time"]}>
+                {SecondsToMinutes(totalTime)}
+              </div>
             </div>
-            <div className={styles["day"]}>{day}</div>
           </div>
         );
       })}
