@@ -42,7 +42,7 @@ const Timeline = (props) => {
               {SecondsToMinutes(time.duration)}
             </div>
             <div className={styles["started-at"]}>
-              {DateFormatter(time.startedAt, "m/d/y h:min:s")}
+              {DateFormatter(time.startedAt, "m/d/y h:min")}
             </div>
           </div>
         </Card>
