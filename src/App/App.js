@@ -3,8 +3,8 @@ import StopWatch from "./components/StopWatch";
 import TimeLine from "./components/TimeLine";
 import TagOptions from "./components/TagOptions";
 import { useState, useEffect } from "react";
-import { TAGS } from "./datas/Tags";
-import { defaultTimeLine } from "./datas/List";
+import { TAGS } from "../datas/Tags";
+import { defaultTimeLine } from "../datas/List";
 import Card from "./components/UI/Card";
 
 function App() {

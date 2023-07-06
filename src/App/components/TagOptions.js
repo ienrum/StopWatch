@@ -1,4 +1,4 @@
-import { TAGS } from "../datas/Tags";
+import { TAGS } from "../../datas/Tags";
 import styles from "./TagOptions.module.css";
 const TagOptions = (props) => {
   const tagOptions = Object.values(TAGS);

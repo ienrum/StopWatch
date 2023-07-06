@@ -1,4 +1,4 @@
-import { TAGS } from "../../datas/Tags";
+import { TAGS } from "../../../datas/Tags";
 import styles from "./Card.module.css";
 
 const Card = (props) => {
