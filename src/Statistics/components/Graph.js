@@ -29,12 +29,13 @@ const Graph = ({ timeLine, tagOption, weekPeriod }) => {
       {dayOfWeekTotalTime.map((totalTime, index) => {
         const day = dayOfWeek[index];
         const height = (totalTime / maxTotalTime) * 100;
+        console.log(height);
         return (
           <div key={index} className={styles["graph"]}>
             <div
               className={styles["totaltime"]}
               style={{
-                height: `${height}%`,
+                width: `${height}%`,
                 backgroundColor: colors[tagOption],
                 opacity: "40%",
               }}
