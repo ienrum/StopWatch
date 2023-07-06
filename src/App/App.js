@@ -7,7 +7,7 @@ import { TAGS } from "../datas/Tags";
 import { defaultTimeLine } from "../datas/List";
 import Card from "./components/UI/Card";
 
-function App() {
+function App(props) {
   const [timeLine, setTimeLine] = useState(
     window.localStorage.getItem("timeLine") === null
       ? defaultTimeLine
@@ -21,7 +21,9 @@ function App() {
 
   return (
     <div className={styles.App}>
-      <h1 className={styles.title}>Stop Watch Timer</h1>
+      <Card className={styles.title} onClick={props.onClick}>
+        Stop Watch Timer
+      </Card>
       <StopWatch onSetTimeLine={setTimeLine} tag={tagOption} />
       <Card className={styles.timeline}>
         <TagOptions onSetTagOption={setTagOption} />

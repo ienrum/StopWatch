@@ -29,19 +29,23 @@ const Statistics = (props) => {
 
   return (
     <div className={styles.Statistics}>
-      <h1 className={styles.title}>Statistics</h1>
+      <Card className={styles.title} onClick={props.onClick}>
+        Statistics
+      </Card>
       <Card className={styles["container"]}>
         <WeekOption
           weekPeriod={weekPeriod}
           onSetWeekPeriod={setWeekPeriod}
           weekPeriodDate={weekPeriodDate}
         />
-        <TagOptions onSetTagOption={setTagOption} />
-        <Graph
-          timeLine={timeLine}
-          tagOption={tagOption}
-          weekPeriod={weekPeriod}
-        />
+        <Card className={styles["container-2"]}>
+          <TagOptions onSetTagOption={setTagOption} />
+          <Graph
+            timeLine={timeLine}
+            tagOption={tagOption}
+            weekPeriod={weekPeriod}
+          />
+        </Card>
       </Card>
     </div>
   );

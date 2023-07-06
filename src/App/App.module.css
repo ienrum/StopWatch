@@ -16,6 +16,12 @@
 .title {
   font-size: 40px;
   font-weight: bold;
+
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.title:hover {
+  background-color: var(--primary-color);
 }
 
 .timeline {

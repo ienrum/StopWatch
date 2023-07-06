@@ -44,6 +44,8 @@ code {
   box-sizing: border-box;
   color: var(--accent-color);
 }
-html {
+html,
+body,
+#root {
   background-color: var(--background-color);
 }
