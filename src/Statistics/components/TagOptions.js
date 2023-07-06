@@ -7,7 +7,7 @@ const TagOptions = (props) => {
   };
   return (
     <>
-      <div className={styles["tag-options-container"]}>
+      <div className={styles["container"]}>
         <select className={styles["select"]} onChange={tagOptionHandler}>
           {tagOptions.map((tag) => (
             <option key={tag} value={tag}>

@@ -1,4 +1,3 @@
-import DateFormatter from "../../functions/DateFormatter";
 import styles from "./Graph.module.css";
 import { TAGS } from "../../datas/Tags";
 import SecondsToMinutes from "../../functions/SecondsToMinutes";

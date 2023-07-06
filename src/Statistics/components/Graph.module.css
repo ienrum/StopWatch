@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  height: 100%;
+  height: 300px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -16,11 +16,16 @@
   justify-content: flex-end;
   align-items: center;
   gap: 3%;
+  padding: 2% 0 2% 0;
+  font-weight: 700;
+
+  border-radius: 6px;
+
+  background-color: var(--secondary-color);
 }
 
 .totaltime {
-  height: 100%;
   width: 70%;
   background-color: var(--accent-color);
-  border-radius: 5%;
+  border-radius: 6px;
 }
