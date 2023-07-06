@@ -26,7 +26,7 @@ const WeekOption = ({ weekPeriod, onSetWeekPeriod, weekPeriodDate }) => {
       <div className={styles.week}>
         {DateFormatter(weekPeriod[0], `y/m/d`) +
           " ~ " +
-          DateFormatter(weekPeriod[1], "y/m/d")}
+          DateFormatter(weekPeriod[1], "m/d")}
       </div>
       <button className={styles.button} onClick={nextWeekHandler}>
         next week
