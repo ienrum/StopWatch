@@ -29,7 +29,6 @@ const Graph = ({ timeLine, tagOption, weekPeriod }) => {
       {dayOfWeekTotalTime.map((totalTime, index) => {
         const day = dayOfWeek[index];
         const height = (totalTime / maxTotalTime) * 100 * 0.65;
-        console.log(height);
         return (
           <div key={index} className={styles["graph"]}>
             <div
