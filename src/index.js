@@ -1,18 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import "./index.module.css";
 import App from "./App/App";
 import reportWebVitals from "./reportWebVitals";
 import Statistics from "./Statistics/Statistics";
+import ThemeToggle from "./UI/ThemeToggle";
+
+const isDarkData =
+  window.localStorage.getItem("isDark") === null
+    ? true
+    : JSON.parse(window.localStorage.getItem("isDark"));
+
+if (isDarkData) {
+  document.documentElement.removeAttribute("data-theme");
+} else {
+  document.documentElement.setAttribute("data-theme", "dark");
+}
 
 const RootFreg = () => {
-  const [isApp, setIsApp] = useState(true);
+  const [isApp, setIsApp] = useState(
+    window.localStorage.getItem("isApp") === null
+      ? true
+      : JSON.parse(window.localStorage.getItem("isApp"))
+  );
+  const [isDark, setIsDark] = useState(
+    window.localStorage.getItem("isDark") === null
+      ? true
+      : JSON.parse(window.localStorage.getItem("isDark"))
+  );
 
+  useEffect(() => {
+    window.localStorage.setItem("isApp", JSON.stringify(isApp));
+    window.localStorage.setItem("isDark", JSON.stringify(isDark));
+  }, [isApp, isDark]);
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.removeAttribute("data-theme");
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  }, [isDark]);
   const onClick = () => {
     setIsApp((prevState) => !prevState);
   };
+
   return (
-    <>{isApp ? <App onClick={onClick} /> : <Statistics onClick={onClick} />}</>
+    <>
+      <ThemeToggle isDark={isDark} setIsDark={setIsDark} />
+      {isApp ? <App onClick={onClick} /> : <Statistics onClick={onClick} />}
+    </>
   );
 };
 const root = ReactDOM.createRoot(document.getElementById("root"));
