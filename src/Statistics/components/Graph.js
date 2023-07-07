@@ -36,7 +36,8 @@ const Graph = ({ timeLine, tagOption, weekPeriod }) => {
               style={{
                 width: `${height}%`,
                 backgroundColor: colors[tagOption],
-                opacity: "40%",
+                border: `3px solid var(--accent-color)`,
+                opacity: "70%",
               }}
             ></div>
             <div className={styles["day"]}>
