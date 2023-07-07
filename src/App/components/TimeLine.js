@@ -12,6 +12,10 @@ const Timeline = (props) => {
     timeLine = props.timeLine;
   }
 
+  timeLine.sort((a, b) => {
+    return new Date(b.startedAt) - new Date(a.startedAt);
+  });
+
   timeLine.forEach((time) => {
     totalTime += time.duration;
   });
