@@ -12,9 +12,9 @@ import WeekOption from "./components/WeekOption";
 
 const Statistics = (props) => {
   const weekPeriodDate = (today) => {
-    const first = today.getDate() - today.getDay();
+    const first = today.getDate() - today.getDay() - 1;
     const firstDay = new Date(today.setDate(first));
-    const lastDay = new Date(today.setDate(first + 6));
+    const lastDay = new Date(today.setDate(first + 7));
     return [firstDay, lastDay];
   };
 
