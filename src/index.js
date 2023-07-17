@@ -6,11 +6,20 @@ import App from "./App/App";
 import reportWebVitals from "./reportWebVitals";
 import Statistics from "./Statistics/Statistics";
 import ThemeToggle from "./UI/ThemeToggle";
+function isBrowser() {
+  return typeof window !== "undefined";
+}
+function getSafeLocalStorage(key, initialValue) {
+  // 브라우저인지 확인
+  if (!isBrowser()) return initialValue;
 
-const isDarkData =
-  window.localStorage.getItem("isDark") === null
-    ? true
-    : JSON.parse(window.localStorage.getItem("isDark"));
+  const storedValue = window.localStorage.getItem(key);
+  if (storedValue === null) return initialValue;
+
+  return JSON.parse(storedValue);
+}
+
+const isDarkData = getSafeLocalStorage("isDark", true);
 
 if (isDarkData) {
   document.documentElement.removeAttribute("data-theme");
@@ -19,16 +28,8 @@ if (isDarkData) {
 }
 
 const RootFreg = () => {
-  const [isApp, setIsApp] = useState(
-    window.localStorage.getItem("isApp") === null
-      ? true
-      : JSON.parse(window.localStorage.getItem("isApp"))
-  );
-  const [isDark, setIsDark] = useState(
-    window.localStorage.getItem("isDark") === null
-      ? true
-      : JSON.parse(window.localStorage.getItem("isDark"))
-  );
+  const [isApp, setIsApp] = useState(getSafeLocalStorage("isApp", true));
+  const [isDark, setIsDark] = useState(getSafeLocalStorage("isDark", true));
 
   useEffect(() => {
     window.localStorage.setItem("isApp", JSON.stringify(isApp));
