@@ -8,13 +8,13 @@ const DateFormatter = (date, format) => {
   const dayOfWeek = dateObj.toLocaleString("en-us", { weekday: "short" });
 
   return format
-    .replaceAll("dow", dayOfWeek)
-    .replaceAll("d", day)
-    .replaceAll("y", year)
-    .replaceAll("h", dateObj.getHours())
-    .replaceAll("min", minutes < 10 ? `0${minutes}` : minutes)
-    .replaceAll("m", month)
-    .replaceAll("s", seconds);
+    .replace(/dow/g, dayOfWeek)
+    .replace(/d/g, day)
+    .replace(/y/g, year)
+    .replace(/h/g, dateObj.getHours())
+    .replace(/min/g, minutes < 10 ? `0${minutes}` : minutes)
+    .replace(/m/g, month)
+    .replace(/s/g, seconds);
 };
 
 export default DateFormatter;
