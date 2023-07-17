@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
+import { hydrate, render } from "react-dom";
 import "./index.module.css";
 import App from "./App/App";
 import reportWebVitals from "./reportWebVitals";
@@ -52,8 +53,12 @@ const RootFreg = () => {
     </>
   );
 };
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RootFreg />);
+const root = document.getElementById("root");
+if (root.hasChildNodes()) {
+  hydrate(<RootFreg />, root);
+} else {
+  render(<RootFreg />, root);
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
